@@ -1,0 +1,11 @@
+### register
+post http://localhost:3000/auth/register
+content-type: application/json
+
+{
+    "username": "farzad",
+    "email": "samadimehrdad50@gmail.com",
+    "phone_number": "09371567429",
+    "password": "123456",
+    "confirm_password": "123456"
+}

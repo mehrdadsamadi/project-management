@@ -1,3 +1,5 @@
+const { all_routes } = require('./router/router')
+
 module.exports = class Application {
     #express = require('express') //create private express with #
     #app = this.#express() //create private app with #
@@ -37,11 +39,13 @@ module.exports = class Application {
     }
 
     create_routes() {
-        this.#app.get("/", (req, res, next) => {
-            return res.json({
-                message: "سلام به همگی"
-            })
-        })
+        // this.#app.get("/", (req, res, next) => {
+        //     return res.json({
+        //         message: "سلام به همگی"
+        //     })
+        // })
+
+        this.#app.use(all_routes)
     }
 
     error_handler() {
