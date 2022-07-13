@@ -1,6 +1,14 @@
 class UserController {
-    get_profile() {
-        
+    get_profile(req, res, next) {
+        try {
+            res.status(200).json({
+                success: true,
+                status: 200,
+                user: req.user
+            })
+        } catch (error) {
+            next(error)
+        }
     }
 
     edit_profile() {

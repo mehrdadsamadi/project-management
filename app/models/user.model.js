@@ -7,6 +7,7 @@ const user_schema = new Schema({
     password: {type: String, required: true},
     email: {type: String, required: true, uniqe: true},
     phone_number: {type: String, required: true, uniqe: true},
+    token: {type: String, default: ""},
     roles: {type: [String], default: ["USER"]},
     teams: {type: [Types.ObjectId], default: []},
     skills: {type: [String], default: []},

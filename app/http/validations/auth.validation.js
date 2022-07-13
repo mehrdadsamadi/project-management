@@ -26,6 +26,17 @@ function register_validator() {
     ]
 }
 
+function login_validator() {
+    return [
+        body("username").not().isEmpty().withMessage("نام کاربری نمی تواند خالی باشد"),
+        body("password").isLength({min: 6, max: 16}).withMessage("کلمه عبور باید حداقل 6 و حداکثر 16 کاراکتر باشد").custom((value, {req}) => {
+            if(!value) throw "کلمه عبور نمیتواند خالی باشد"
+            return true
+        }),
+    ]
+}
+
 module.exports = {
-    register_validator
+    register_validator,
+    login_validator
 }
