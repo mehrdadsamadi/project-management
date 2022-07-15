@@ -1,3 +1,5 @@
+const { UserModel } = require('../../models/user.model');
+
 class UserController {
     get_profile(req, res, next) {
         try {
@@ -11,23 +13,40 @@ class UserController {
         }
     }
 
-    edit_profile() {
+    async edit_profile(req, res, next) {
+        try {
+            Object.entries(req.body).forEach(([key, value]) => {
+                if(!value) delete req.body[key]
+            })
+            
+            const result = await UserModel.updateOne({_id: req.user._id}, {$set: req.body})
+
+            if(result.modifiedCount <= 0) throw {status: 500, message: "به روز رسانی موفقیت آمیز نبود"}
+
+            return res.status(200).json({
+                success: true,
+                status: 200,
+                message: "پروفایل شما با موفقیت بروزرسانی شد"
+            })
+
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    add_skills(req, res, next) {
 
     }
 
-    add_skills() {
-
-    }
-
-    edit_skills() {
+    edit_skills(req, res, next) {
         
     }
 
-    accept_invite_to_team() {
+    accept_invite_to_team(req, res, next) {
         
     }
 
-    reject_invite_to_team() {
+    reject_invite_to_team(req, res, next) {
         
     }
 }
