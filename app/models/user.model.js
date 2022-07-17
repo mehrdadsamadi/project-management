@@ -8,6 +8,7 @@ const user_schema = new Schema({
     email: {type: String, required: true, uniqe: true},
     phone_number: {type: String, required: true, uniqe: true},
     token: {type: String, default: ""},
+    profile_image: {type: String, default: "/dafaults/user-placeholder.png"},
     roles: {type: [String], default: ["USER"]},
     teams: {type: [Types.ObjectId], default: []},
     skills: {type: [String], default: []},
