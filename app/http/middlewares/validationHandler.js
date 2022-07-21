@@ -1,6 +1,6 @@
 const {validationResult} = require('express-validator');
 
-function validation_handler(req, res, next) {
+const validation_handler = (req, res, next) => {
     let messages = {}
 
     const result = validationResult(req)

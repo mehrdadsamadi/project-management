@@ -7,7 +7,7 @@ const team_schema = new Schema({
     owner: {type: Types.ObjectId, required: true},
 },{timestamps: true})
 
-const TeamModel = model("user", team_schema)
+const TeamModel = model("team", team_schema)
 
 module.exports = {
     TeamModel

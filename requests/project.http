@@ -1,0 +1,14 @@
+### create project
+POST http://localhost:3000/project/create
+Content-Type: application/json
+Authorization: Bearer {{$dotenv token}}
+
+{
+    "title": "پروزه مدیریت پروژه",
+    "text": "این پروژه خیلی خفن و خوبه عالیه اصلا"
+}
+
+### get all project
+GET http://localhost:3000/project/all
+Content-Type: application/json
+Authorization: Bearer {{$dotenv token}}

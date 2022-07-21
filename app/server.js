@@ -1,5 +1,4 @@
 const { all_routes } = require('./router/router')
-
 module.exports = class Application {
     #express = require('express') //create private express with #
     #app = this.#express() //create private app with #
@@ -44,6 +43,8 @@ module.exports = class Application {
         //         message: "سلام به همگی"
         //     })
         // })
+
+        // TODO: create try catch block
 
         this.#app.use(all_routes)
     }
