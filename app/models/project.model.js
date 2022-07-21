@@ -4,7 +4,7 @@ const project_schema = new Schema({
     title: {type: String, required: true},
     text: {type: String, required: true},
     image: {type: String, default: "/dafaults/project-placeholder.png"},
-    tags: {type: Array, default: []},
+    tags: {type: [String], default: []},
     owner: {type: Types.ObjectId, required: true},
     team: {type: Types.ObjectId},
     Private: {type: Boolean, default: true}
